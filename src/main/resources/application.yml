@@ -1,0 +1,6 @@
+info:
+  name: wms-service
+  contact: jinku
+
+server:
+  port: 8762
