@@ -25,4 +25,11 @@ public class WmsController {
 		logger.info("GoodsId: {} subStock 1", goodsId);
 		return "success";
 	}
+
+	// test
+	@PostMapping("/insertAndDelete")
+	public String insertAndDelete() {
+		goodsStockService.insertAndDelete();
+		return "success";
+	}
 }
