@@ -14,7 +14,7 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
-	​<springProperty scope="context" name="logstashHost" source="LOGSTASH_URL" />
+	<springProperty scope="context" name="logstashHost" source="LOGSTASH_URL" />
 	<appender name="logstash_appender"
 			class="net.logstash.logback.appender.LogstashTcpSocketAppender">
 
@@ -22,16 +22,17 @@
             <!-- Minimum logging level to be presented in the console logs -->
             <level>INFO</level>
         </filter>
-<!--		<destination>127.0.0.1:4560</destination>-->
-        <destination>${logstashHost}</destination>
+		<destination>127.0.0.1:4560</destination>
+<!--        <destination>${logstashHost}</destination>-->
 		<encoder class="net.logstash.logback.encoder.LogstashEncoder" />
 	</appender>
 
 	<logger name="com.tw" level="debug" />
-	<logger name="com.netflix.eureka" level="warn" />
-	<logger name="org.springcloud" level="warn" />
-	<root level="debug">
+	<logger name="com.netflix.eureka" level="ERROR" />
+	<logger name="org.springcloud" level="ERROR" />
+    <logger name="org.hibernate" level="DEBUG" />
+	<root level="INFO">
         <appender-ref ref="console" />
-		<appender-ref ref="logstash_appender" />
+<!--		<appender-ref ref="logstash_appender" />-->
 	</root>
 </configuration>
