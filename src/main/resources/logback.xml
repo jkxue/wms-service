@@ -14,7 +14,7 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
-	<springProperty scope="context" name="logstashHost" source="LOGSTASH_URL" />
+<!--	<springProperty scope="context" name="logstashHost" source="LOGSTASH_URL" />-->
 	<appender name="logstash_appender"
 			class="net.logstash.logback.appender.LogstashTcpSocketAppender">
 
@@ -33,6 +33,6 @@
     <logger name="org.hibernate" level="DEBUG" />
 	<root level="INFO">
         <appender-ref ref="console" />
-<!--		<appender-ref ref="logstash_appender" />-->
+		<appender-ref ref="logstash_appender" />
 	</root>
 </configuration>

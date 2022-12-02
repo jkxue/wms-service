@@ -14,7 +14,7 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 		<spring-cloud.version>2021.0.3</spring-cloud.version>
 	</properties>
 
@@ -51,10 +51,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
-<!--		<dependency>-->
-<!--		    <groupId>org.springframework.cloud</groupId>-->
-<!--		    <artifactId>spring-cloud-sleuth-zipkin</artifactId>-->
-<!--		</dependency>-->
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -86,25 +86,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.2.2</version>
-				<configuration>
-					<imageName>127.0.0.1:5004/${project.artifactId}:${project.version}</imageName>
-					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-
-					<serverId>local_docker_registry</serverId>
-					<registryUrl>127.0.0.1:5004</registryUrl>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>

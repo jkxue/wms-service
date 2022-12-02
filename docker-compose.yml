@@ -1,10 +1,11 @@
 version: "3.2"
 services:
   wms-service:
-    # 镜像地址
-    image: 127.0.0.1:5000/wms-service:1.0.0
     # 容器名称
     container_name: wms-service
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     environment:
       - EUREKA_URL=http://eureka:8761
       - DB_URL=jdbc:mysql://db:3306/wms-db?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -30,9 +31,9 @@ services:
       retries: 5
   eureka:
     # 镜像地址
-    image: 127.0.0.1:5000/eureka-server:1.0.0
+    image: eureka-server:1.0.0
     # 容器名称
-    container_name: eureka
+    container_name: eureka-server
     ports:
       - "8761:8761"
 
@@ -92,7 +93,7 @@ services:
       - MYSQL_DATABASE=wms-db
     ports:
       - "3306:3306"
-
+    user: "501:20"
   postman:
     image: postman/newman
     volumes:

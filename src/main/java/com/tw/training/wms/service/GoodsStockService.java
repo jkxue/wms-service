@@ -22,6 +22,7 @@ public class GoodsStockService {
     GoodsRepository goodsRepository;
 
     public GoodsStock create(GoodsStock goodsStock) {
+        logger.info("创建商品库存{},{}：", goodsStock.getGoodsId(), goodsStock.getStockCount());
         return goodsStockRepository.save(goodsStock);
     }
 
