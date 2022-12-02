@@ -92,5 +92,12 @@ services:
       - MYSQL_DATABASE=wms-db
     ports:
       - "3306:3306"
+
+  postman:
+    image: postman/newman
+    volumes:
+      - "./src/test/postman:/etc/newman"
+    command: ["run", "wms.postman_collection.json", "-g", "WMS-SERVICE-LOCAL.postman_environment.json"]
+
 volumes:
   db-data:

@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "618a33b0-aab1-4554-96bd-c74da067021a",
+		"name": "wms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "wms-create-goods-stock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code must be 201\", function() {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"verify reponse fields\", function() {",
+							"    var jsonBody = pm.response.json();",
+							"    pm.expect(jsonBody).not.eq(undefined);",
+							"    pm.expect(jsonBody.goodsId).to.eq(2);",
+							"    pm.expect(jsonBody.stockCount).to.eq(100);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"goodsId\": \"2\",\n    \"stockCount\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{WMS-SERVICE-ENDPOINT}}/wms/goods-stock",
+					"host": [
+						"{{WMS-SERVICE-ENDPOINT}}"
+					],
+					"path": [
+						"wms",
+						"goods-stock"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
