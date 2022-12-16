@@ -29,7 +29,7 @@ spring:
       percentage: 1.0
     # 接口调用信息推送到这个zipkin服务
   zipkin:
-    base-url: http://127.0.0.1:9411/
+    baseUrl: http://127.0.0.1:9411/
 #    base-url: ${ZIPKIN_URL}
 
 eureka:

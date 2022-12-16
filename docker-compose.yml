@@ -93,7 +93,6 @@ services:
       - MYSQL_DATABASE=wms-db
     ports:
       - "3306:3306"
-    user: "501:20"
   postman:
     image: postman/newman
     volumes:

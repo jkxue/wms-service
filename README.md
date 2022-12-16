@@ -14,7 +14,7 @@ mvn clean package spring-boot:run
 
 ## Using docker
  ``` shell
-docker-compose up eureka-server
+docker-compose up wms-service
  ```
 Service Url: http://localhost:8762/
 
