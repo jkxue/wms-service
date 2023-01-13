@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "618a33b0-aab1-4554-96bd-c74da067021a",
 		"name": "wms",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3136115"
 	},
 	"item": [
 		{
@@ -47,6 +48,86 @@
 					"path": [
 						"wms",
 						"goods-stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wms-sub-goods-stock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code must be 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{WMS-SERVICE-ENDPOINT}}/wms/goods-stock/2/sub-stock?number=2",
+					"host": [
+						"{{WMS-SERVICE-ENDPOINT}}"
+					],
+					"path": [
+						"wms",
+						"goods-stock",
+						"2",
+						"sub-stock"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wms-add-goods-stock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status code must be 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{WMS-SERVICE-ENDPOINT}}/wms/goods-stock/2/add-stock?number=2",
+					"host": [
+						"{{WMS-SERVICE-ENDPOINT}}"
+					],
+					"path": [
+						"wms",
+						"goods-stock",
+						"2",
+						"add-stock"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "2"
+						}
 					]
 				}
 			},
